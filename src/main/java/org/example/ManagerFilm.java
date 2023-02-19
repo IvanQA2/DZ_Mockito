@@ -2,7 +2,17 @@ package org.example;
 
 public class ManagerFilm {
     private String[] filmName = new String[0];
+    private int limit;
 
+    public ManagerFilm() {
+        this.limit = 10;
+
+    }
+
+    public ManagerFilm(int limit) {
+        this.limit = limit;
+
+    }
 
     public void addFilm(String film) {
         String[] tmp = new String[filmName.length + 1];
@@ -12,7 +22,6 @@ public class ManagerFilm {
         tmp[tmp.length - 1] = film;
         filmName = tmp;
 
-
     }
 
     public String[] findAll() {
@@ -21,10 +30,10 @@ public class ManagerFilm {
 
     public String[] findLast() {
         int resultLenght;
-        if (filmName.length < 10) {
+        if (filmName.length < limit) {
             resultLenght = filmName.length;
         } else {
-            resultLenght = 10;
+            resultLenght = limit;
         }
         String[] tmp = new String[resultLenght];
         for (int i = 0; i < tmp.length; i++) {
