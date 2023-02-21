@@ -36,11 +36,11 @@ public class ManagerFilm {
             resultLenght = limit;
         }
         String[] tmp = new String[resultLenght];
+
         for (int i = 0; i < tmp.length; i++) {
             tmp[i] = filmName[filmName.length - 1 - i];
         }
         return tmp;
-
     }
 }
 

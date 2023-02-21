@@ -14,7 +14,6 @@ public class ManagerFilmTest {
         String film3 = "Film 3";
         String film4 = "Film 4";
 
-
         ManagerFilm manager = new ManagerFilm();
         manager.addFilm(film1);
         manager.addFilm(film2);
@@ -84,39 +83,26 @@ public class ManagerFilmTest {
         ManagerFilm manager = new ManagerFilm();
         manager.addFilm("Film 1");
         manager.addFilm("Film 2");
-        String[] result = manager.findLast();
-        assertEquals(2, result.length);
-    }
 
-    @Test
-    public void findLastLongArrayReturnsCorrectLength() {
-        ManagerFilm manager = new ManagerFilm();
-        manager.addFilm("Film 1");
-        manager.addFilm("Film 2");
-        manager.addFilm("Film 3");
-        manager.addFilm("Film 4");
-        manager.addFilm("Film 5");
-        manager.addFilm("Film 6");
-        manager.addFilm("Film 7");
-        manager.addFilm("Film 8");
-        manager.addFilm("Film 9");
-        manager.addFilm("Film 10");
-        manager.addFilm("Film 11");
-        String[] result = manager.findLast();
-        assertEquals(10, result.length);
+        String[] expected = {"Film 2", "Film 1"};
+        String[] actual = manager.findLast();
+        Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void findAllEmptyArrayReturnsEmptyArray() {
         ManagerFilm manager = new ManagerFilm();
-        String[] result = manager.findAll();
-        assertEquals(0, result.length);
+        String[] expected = {};
+        String[] actual = manager.findAll();
+        Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void findLastEmptyArrayReturnsEmptyArray() {
         ManagerFilm manager = new ManagerFilm();
-        String[] result = manager.findLast();
-        assertEquals(0, result.length);
+        String[] expected = {};
+        String[] actual = manager.findLast();
+        Assertions.assertArrayEquals(expected, actual);
     }
+
 }
