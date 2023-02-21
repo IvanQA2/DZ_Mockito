@@ -105,4 +105,19 @@ public class ManagerFilmTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void testFindLastWithMoreFilmsThanLimit() {
+        // Arrange
+        int limit = 2;
+        ManagerFilm manager = new ManagerFilm(limit);
+        manager.addFilm("Film 1");
+        manager.addFilm("Film 2");
+        manager.addFilm("Film 3");
+
+        String[] actual = manager.findLast();
+
+        String[] expected = {"Film 3", "Film 2"};
+        assertArrayEquals(expected, actual);
+    }
+
 }
